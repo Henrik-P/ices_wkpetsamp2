@@ -3,7 +3,7 @@
 ##### 7 Mar 2023
 ##### David Lusseau, Paula Gutierrez, Henrik Pärn, Kim, Torbjörn, Margaret Siple
 ##################################################################################
-###WGBYC code
+###WGBYC code adapted to WKPETSAMP2
 
 
 library(extraDistr)
