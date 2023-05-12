@@ -30,14 +30,14 @@ mean.bycatch.event<-1
 mean.bycatch.large.event<-20
 p.large.event<-0.01
 
-#simple case the number 
+#simple case the number
 event.type<-rbinom(1,1,p.large.event)
 
 max((1-event.type)*rtpois(10,mean.bycatch.event,a=0),event.type*rtpois(10,mean.bycatch.large.event,a=0))
 
 mean.fishing.event.boat.day<-2
 
-#grow the fishing year - will optimise this process 
+#grow the fishing year - will optimise this process
 
 #initialise
 #fishing.day 1
@@ -47,12 +47,12 @@ make_fishing_year<-function(mean.bycatch.event=1,mean.bycatch.large.event=20,p.l
 							nboat=100,mean.fishing.event.boat.day=2,p.bycatch=0.1,stochastic=TRUE) {
 #we first only deal with one metier at a time
 #bycatch is not affected by vessel characteeristics
-#later we can for example introduce vessel size for each boat 
+#later we can for example introduce vessel size for each boat
 # and influence probabilities by vessel size
 #and subsequently influence monitoring by vessel size
 
 fishing.day<-1:365
-fleet<-1:nboat							
+fleet<-1:nboat
 if (stochastic==TRUE) {
 
 mean.fishing.event.boat.day<-rtpois(nboat,mean.fishing.event.boat.day,a=0)  #introduce stochasticity so that the mean number of events per boats vary
@@ -122,7 +122,7 @@ p_haul_obs=1,detect_prob=1,refusal_rate=0, misclassification=0) {
 
 BPUE_est<-array(nsample)
 
-for (i in 1:nsample) { 
+for (i in 1:nsample) {
 
 if (boat_samp==FALSE) {
 monitored<-sample(c(1:dim(fishing)[1]),floor(pmonitor*dim(fishing)[1]),replace=FALSE) # sample without replacement
@@ -251,14 +251,14 @@ mean.bycatch.event<-1
 mean.bycatch.large.event<-20
 p.large.event<-0.01
 
-#simple case the number 
+#simple case the number
 event.type<-rbinom(1,1,p.large.event)
 
 max((1-event.type)*rtpois(10,mean.bycatch.event,a=0),event.type*rtpois(10,mean.bycatch.large.event,a=0))
 
 mean.fishing.event.boat.day<-2
 
-#grow the fishing year - will optimise this process 
+#grow the fishing year - will optimise this process
 
 #initialise
 #fishing.day 1
@@ -268,12 +268,12 @@ make_fishing_year<-function(mean.bycatch.event=1,mean.bycatch.large.event=20,p.l
 							nboat=100,mean.fishing.event.boat.day=2,p.bycatch=0.1,stochastic=TRUE) {
 #we first only deal with one metier at a time
 #bycatch is not affected by vessel characteeristics
-#later we can for example introduce vessel size for each boat 
+#later we can for example introduce vessel size for each boat
 # and influence probabilities by vessel size
 #and subsequently influence monitoring by vessel size
 
 fishing.day<-1:365
-fleet<-1:nboat							
+fleet<-1:nboat
 if (stochastic==TRUE) {
 
 mean.fishing.event.boat.day<-rtpois(nboat,mean.fishing.event.boat.day,a=0)  #introduce stochasticity so that the mean number of events per boats vary
@@ -388,13 +388,13 @@ labs(x="proportion of the fleet reporting effort",y="Days at Sea")
 make_fishing_year_metier<-function(mean.bycatch.event=1,mean.bycatch.large.event=20,p.large.event=0.01,
 							nboat=100,mean.fishing.event.boat.day=2,p.bycatch=c(0.1,.01),p.metier=c(.2,.8),stochastic=TRUE) {
 
-#p.metier is the proportion of vessel in the, here, length of p.bycatch metiers 
+#p.metier is the proportion of vessel in the, here, length of p.bycatch metiers
 # p bycatch event alternative distribution particularly for low density species
 
 nmetier<-length(p.bycatch)
 
 fishing.day<-1:365
-fleet<-1:nboat							
+fleet<-1:nboat
 metier<-sample(1:nmetier,nboat,replace=TRUE,prob=p.metier) #here we deal with probability of metier, not proportion of metier
 
 if (stochastic==TRUE) {
@@ -499,7 +499,7 @@ labs(x="proportion of the fleet reporting effort",y="number of hauls bias")
 
 #the reporting rate is associated with vessel length
 #what happens if small vessels are not reported, they represent a large proportion of the fleet (say 80%) but also
-# their fishing days differ: 
+# their fishing days differ:
 # option 1: fishing days contain less hauls
 # option 2: they fish in high density areas (closer to shore) so their bycatch rate is higher
 
@@ -507,7 +507,7 @@ labs(x="proportion of the fleet reporting effort",y="number of hauls bias")
 
 #### third premise we deteriorate the monitoring programme strata to metier 3
 
-#### fourth premise we deal with bycatch complexity - multiple fisheries and multiple species 
+#### fourth premise we deal with bycatch complexity - multiple fisheries and multiple species
 # first PTB and GNS
 
 
@@ -554,7 +554,7 @@ p_haul_obs=1,detect_prob=1,refusal_rate=0, misclassification=0, bymetier=FALSE, 
 
 BPUE_est<-array(nsample)
 
-for (i in 1:nsample) { 
+for (i in 1:nsample) {
 
 if (bymetier==FALSE) {
 
